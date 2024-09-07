@@ -1,0 +1,6 @@
+@AngularDotNetCoreFullStackWebApplication.Server_HostAddress = http://localhost:5150
+
+GET {{AngularDotNetCoreFullStackWebApplication.Server_HostAddress}}/Transaction/GetTransaction
+Accept: application/json
+
+###

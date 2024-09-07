@@ -1,0 +1,27 @@
+<p *ngIf="!transactions">Loading...</p>
+<div class="table-responsive p-5">
+  <table *ngIf="transactions" class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>TransactionID</th>
+        <th>TradeID</th>
+        <th>Version</th>
+        <th>SecurityCode</th>
+        <th>Quantity</th>
+        <th>TradeType</th>
+        <th>TradeAction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.transactionID }}</td>
+        <td>{{ transaction.tradeID }}</td>
+        <td>{{ transaction.version }}</td>
+        <td>{{ transaction.securityCode }}</td>
+        <td>{{ transaction.quantity }}</td>
+        <td>{{ transaction.tradeType }}</td>
+        <td>{{ transaction.tradeAction }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
