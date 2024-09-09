@@ -8,14 +8,6 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public transactions: Transaction[] = [];
-
-  constructor(private transactionService: TransactionsService) { }
-
-  async ngOnInit() {
-    this.transactionService.getTransactions().subscribe(data => {
-      this.transactions = data;
-    });
-  }
 }
