@@ -1,4 +1,5 @@
 using AngularDotNetCoreFullStackWebApplication.Server.Data;
+using AngularDotNetCoreFullStackWebApplication.Server.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
@@ -51,6 +52,9 @@ public class Program
         //     options.UseSqlServer(builder.Configuration.GetConnectionString("EquityInvestment"));
         // });
 
+        // add services in dependancy injection
+        builder.Services.AddScoped<IPositionService, PositionService>();
+        builder.Services.AddScoped<ITransactionService, TransactionService>();
 
         var app = builder.Build();
 

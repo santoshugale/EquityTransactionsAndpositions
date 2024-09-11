@@ -1,5 +1,6 @@
 using AngularDotNetCoreFullStackWebApplication.Server.Data;
 using AngularDotNetCoreFullStackWebApplication.Server.Models;
+using AngularDotNetCoreFullStackWebApplication.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,20 +11,20 @@ namespace AngularDotNetCoreFullStackWebApplication.Server.Controllers
     public class PositionsController : ControllerBase
     {
         private readonly ILogger<PositionsController> _logger;
-        private readonly PositionsContext _context;
+        private readonly IPositionService _positionsService;
 
-        public PositionsController(ILogger<PositionsController> logger,
-            PositionsContext context)
+        public PositionsController(
+            ILogger<PositionsController> logger,
+            IPositionService positionsService)
         {
             _logger = logger;
-            _context = context;
+            _positionsService = positionsService;
         }
 
         [HttpGet]
         public async Task<IEnumerable<Position>> GetTransactions()
         {
-            return await _context.Positions.ToListAsync();
+            return await _positionsService.GetPositionsAsync().ConfigureAwait(false);
         }
-
     }
 }
