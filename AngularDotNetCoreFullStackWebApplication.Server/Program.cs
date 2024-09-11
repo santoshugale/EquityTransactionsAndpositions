@@ -1,5 +1,6 @@
 using AngularDotNetCoreFullStackWebApplication.Server.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 public class Program
 {
@@ -39,6 +40,17 @@ public class Program
         {
             options.UseInMemoryDatabase("Equity");
         });
+
+        // use sql server database 
+        // builder.Services.AddDbContext<TransactionContext>((options) =>
+        // {
+        //     options.UseSqlServer(builder.Configuration.GetConnectionString("EquityInvestment"));
+        // });
+        // builder.Services.AddDbContext<PositionsContext>((options) =>
+        // {
+        //     options.UseSqlServer(builder.Configuration.GetConnectionString("EquityInvestment"));
+        // });
+
 
         var app = builder.Build();
 
