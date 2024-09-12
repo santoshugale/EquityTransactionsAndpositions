@@ -63,7 +63,9 @@ public class Program
         // add repositories in di container
         builder.Services.AddScoped<IPositionRepository, PositionRepository>();
         builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
-        
+
+        builder.Services.AddSingleton<RequestService>();
+
         var app = builder.Build();
 
         app.UseDefaultFiles();

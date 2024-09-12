@@ -12,18 +12,22 @@ namespace AngularDotNetCoreFullStackWebApplication.Server.Controllers
     {
         private readonly ILogger<PositionsController> _logger;
         private readonly IPositionService _positionsService;
+        private readonly RequestService _requestService;
 
         public PositionsController(
             ILogger<PositionsController> logger,
-            IPositionService positionsService)
+            IPositionService positionsService,
+            RequestService requestService)
         {
             _logger = logger;
             _positionsService = positionsService;
+            _requestService = requestService;
         }
 
         [HttpGet]
         public async Task<IEnumerable<Position>> GetTransactions()
         {
+            _requestService.RequestCount++;
             return await _positionsService.GetPositionsAsync().ConfigureAwait(false);
         }
     }
