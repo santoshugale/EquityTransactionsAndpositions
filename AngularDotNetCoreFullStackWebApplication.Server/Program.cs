@@ -1,4 +1,5 @@
 using AngularDotNetCoreFullStackWebApplication.Server.Data;
+using AngularDotNetCoreFullStackWebApplication.Server.Repositories;
 using AngularDotNetCoreFullStackWebApplication.Server.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
@@ -26,7 +27,10 @@ public class Program
         // Add services to the container.
         // TODO - to use sql lite or sql server
 
-        builder.Services.AddControllers();
+        builder.Services.AddControllers(options =>
+        {
+            options.RespectBrowserAcceptHeader = true;
+        }).AddXmlSerializerFormatters();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -52,10 +56,14 @@ public class Program
         //     options.UseSqlServer(builder.Configuration.GetConnectionString("EquityInvestment"));
         // });
 
-        // add services in dependancy injection
+        // add services in dependancy injection container
         builder.Services.AddScoped<IPositionService, PositionService>();
         builder.Services.AddScoped<ITransactionService, TransactionService>();
 
+        // add repositories in di container
+        builder.Services.AddScoped<IPositionRepository, PositionRepository>();
+        builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+        
         var app = builder.Build();
 
         app.UseDefaultFiles();
