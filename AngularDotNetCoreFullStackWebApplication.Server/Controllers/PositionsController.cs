@@ -1,8 +1,6 @@
-using AngularDotNetCoreFullStackWebApplication.Server.Data;
 using AngularDotNetCoreFullStackWebApplication.Server.Models;
 using AngularDotNetCoreFullStackWebApplication.Server.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace AngularDotNetCoreFullStackWebApplication.Server.Controllers
 {

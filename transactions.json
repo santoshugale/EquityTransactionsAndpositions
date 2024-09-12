@@ -1,0 +1,11 @@
+[
+{
+  "transactionID": 1,
+  "tradeID": 1,
+  "version": 1,
+  "securityCode": "REL",
+  "quantity": 50,
+  "tradeAction": 1,
+  "tradeType": 1
+}
+]
