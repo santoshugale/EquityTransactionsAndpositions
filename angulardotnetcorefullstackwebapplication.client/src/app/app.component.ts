@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Transaction } from './components/transactions/transaction';
-import { TransactionsService } from './components/transactions/transactions.service';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { TimeoutService } from './timeout.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +7,6 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  public transactions: Transaction[] = [];
+  constructor(private timeoutService: TimeoutService) {
+  }
 }
