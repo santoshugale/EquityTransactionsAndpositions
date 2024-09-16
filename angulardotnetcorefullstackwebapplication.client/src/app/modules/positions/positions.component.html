@@ -1,6 +1,6 @@
 <p *ngIf="positions?.length === 0">No Positions</p>
 <div class="table-responsive p-5">
-  <table *ngIf="positions" class="table table-bordered table-hover">
+  <table *ngIf="positions.length > 0" class="table table-bordered table-hover">
     <thead>
       <tr>
         <th>SecurityCode</th>
