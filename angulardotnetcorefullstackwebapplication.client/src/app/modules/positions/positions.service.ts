@@ -3,7 +3,7 @@ import { Positions } from "./positions";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class PositionsService {
   constructor(private http: HttpClient) { }
 

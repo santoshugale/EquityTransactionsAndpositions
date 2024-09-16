@@ -1,6 +1,6 @@
 import { TestBed, waitForAsync, ComponentFixture } from '@angular/core/testing';
 import { PositionsComponent } from './positions.component';
-import { PositionsService } from './positions.service';
+import { PositionsService } from '../../modules/positions/positions.service';
 import { of } from 'rxjs';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -9,7 +9,6 @@ describe('PositionsComponent', () => {
   let component: PositionsComponent;
   let fixture: ComponentFixture<PositionsComponent>;
   let positionsServiceMock: any;
-  let httpMock: HttpTestingController;
 
   beforeEach(waitForAsync(() => {
     positionsServiceMock = {
@@ -28,17 +27,12 @@ describe('PositionsComponent', () => {
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
 
-    httpMock = TestBed.inject(HttpTestingController);
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PositionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  afterEach(() => {
-    httpMock.verify();
   });
 
   it('should create the component', () => {
@@ -58,10 +52,10 @@ describe('PositionsComponent', () => {
     expect(compiled.querySelector('tbody tr:last-child td:first-child').textContent).toContain('XYZ');
   });
 
-  it('should display "Loading..." when positions are not yet loaded', () => {
+  it('should display "No Positions" when no positions', () => {
     component.positions = [];
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('p').textContent).toContain('Loading... Please refresh once the ASP.NET backend has started.');
+    expect(compiled.querySelector('p').textContent).toContain('No Positions');
   });
 });

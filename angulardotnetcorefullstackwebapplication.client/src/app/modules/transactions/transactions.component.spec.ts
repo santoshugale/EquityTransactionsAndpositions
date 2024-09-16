@@ -58,10 +58,10 @@ describe('TransactionsComponent', () => {
     expect(compiled.querySelector('tbody tr:last-child td:first-child').textContent).toContain('2');
   });
 
-  it('should display "Loading..." when transactions are not yet loaded', () => {
+  it('should display "No Transactions" when no transactions ', () => {
     component.transactions = [];
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('p').textContent).toContain('Loading...');
+    expect(compiled.querySelector('p').textContent).toContain('No Transactions');
   });
 });

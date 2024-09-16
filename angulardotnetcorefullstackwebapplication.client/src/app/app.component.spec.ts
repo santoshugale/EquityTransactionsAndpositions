@@ -1,13 +1,28 @@
 import { TestBed, waitForAsync, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { TransactionsService } from './components/transactions/transactions.service';
+import { TransactionsService } from './modules/transactions/transactions.service';
 import { of } from 'rxjs';
 import { RouterModule, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { TimeoutService } from './timeout.service';
 
-@Component({ template: '' })
-class DummyComponent { }
+@NgModule({
+  imports: [],
+  exports: [],
+  declarations: [],
+  providers: [],
+})
+class MockModule1Module { }
+
+@NgModule({
+  imports: [],
+  exports: [],
+  declarations: [],
+  providers: [],
+})
+class MockModule2Module { }
+
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -17,12 +32,14 @@ describe('AppComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, DummyComponent],
+      declarations: [AppComponent],
       imports: [RouterModule.forRoot([
-        { path: 'transactions', component: DummyComponent },
-        { path: 'positions', component: DummyComponent }
+        { path: 'transactions', loadChildren: () => MockModule1Module },
+        { path: 'positions', loadChildren: () => MockModule2Module }
       ])],
-      providers: [{}]
+      providers: [
+        { provide: TimeoutService, useValue: {} },
+      ]
     }).compileComponents();
   }));
 

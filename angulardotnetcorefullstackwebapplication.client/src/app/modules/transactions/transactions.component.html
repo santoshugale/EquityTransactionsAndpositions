@@ -1,4 +1,4 @@
-<p *ngIf="!transactions">Loading...</p>
+<p *ngIf="transactions.length === 0">No Transactions</p>
 <div class="table-responsive p-5">
   <table *ngIf="transactions" class="table table-bordered table-hover">
     <thead>
