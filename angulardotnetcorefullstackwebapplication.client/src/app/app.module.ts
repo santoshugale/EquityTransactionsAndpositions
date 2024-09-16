@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { PositionsComponent } from './components/positions/positions.component';
 import { ErrorComponent } from './components/error/error.component';
-import { PageNotFoundComponentComponent } from './components/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { PageNotFoundComponentComponent } from './components/page-not-found/page
     TransactionsComponent,
     PositionsComponent,
     ErrorComponent,
-    PageNotFoundComponentComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

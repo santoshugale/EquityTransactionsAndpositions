@@ -9,6 +9,6 @@ export class TransactionsService {
   constructor(private http: HttpClient) { }
 
   getTransactions(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>('http://localhost:5150/Transaction');
+    return this.http.get<Transaction[]>('http://localhost:12935/Transaction');
   }
 }
