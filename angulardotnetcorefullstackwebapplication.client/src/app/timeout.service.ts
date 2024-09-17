@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class TimeoutService {
   private timeoutId: any;
-  private idleTime: number = 60000; // 1 minutes in milliseconds
+  private idleTime: number = 600000; // 1 minutes in milliseconds
 
   constructor(private router: Router, private ngZone: NgZone) {
     this.startWatching();
