@@ -6,15 +6,15 @@ using Newtonsoft.Json;
 namespace AngularDotNetCoreFullStackWebApplication.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class TransactionController : ControllerBase
+    [Route("api/[controller]")]
+    public class TransactionsController : ControllerBase
     {
-        private readonly ILogger<TransactionController> _logger;
+        private readonly ILogger<TransactionsController> _logger;
         private readonly ITransactionService _transactionService;
         private readonly RequestService _requestService;
 
-        public TransactionController(
-            ILogger<TransactionController> logger,
+        public TransactionsController(
+            ILogger<TransactionsController> logger,
             ITransactionService transactionService,
             RequestService requestService)
         {

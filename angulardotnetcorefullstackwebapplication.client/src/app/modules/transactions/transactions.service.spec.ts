@@ -54,7 +54,7 @@ describe('TransactionsService', () => {
       expect(transactions).toEqual(dummyTransactions);
     });
 
-    const req = httpMock.expectOne('http://localhost:12935/Transaction');
+    const req = httpMock.expectOne('http://localhost:5150/Transaction');
     expect(req.request.method).toBe('GET');
     req.flush(dummyTransactions);
   });

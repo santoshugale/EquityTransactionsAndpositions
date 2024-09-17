@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AngularDotNetCoreFullStackWebApplication.Server.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class RequestsController : ControllerBase
     {

@@ -8,6 +8,6 @@ export class PositionsService {
   constructor(private http: HttpClient) { }
 
   getPositions(): Observable<Positions[]> {
-    return this.http.get<Positions[]>('http://localhost:12935/Positions');
+    return this.http.get<Positions[]>('/api/positions');
   }
 }

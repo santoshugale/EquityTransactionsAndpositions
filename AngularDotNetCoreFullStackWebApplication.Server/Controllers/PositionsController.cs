@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AngularDotNetCoreFullStackWebApplication.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PositionsController : ControllerBase
     {
         private readonly ILogger<PositionsController> _logger;

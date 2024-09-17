@@ -40,7 +40,7 @@ describe('PositionsService', () => {
       expect(positions).toEqual(dummyPositions);
     });
 
-    const req = httpMock.expectOne('http://localhost:12935/Positions');
+    const req = httpMock.expectOne('http://localhost:5150/Positions');
     expect(req.request.method).toBe('GET');
     req.flush(dummyPositions);
   });

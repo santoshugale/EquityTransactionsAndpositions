@@ -1,6 +1,9 @@
 @AngularDotNetCoreFullStackWebApplication.Server_HostAddress = http://localhost:5150
 
-GET {{AngularDotNetCoreFullStackWebApplication.Server_HostAddress}}/Transaction/GetTransaction
+GET {{AngularDotNetCoreFullStackWebApplication.Server_HostAddress}}/api/positions
 Accept: application/json
 
+
+GET {{AngularDotNetCoreFullStackWebApplication.Server_HostAddress}}/api/transactions
+Accept: application/json
 ###
