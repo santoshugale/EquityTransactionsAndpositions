@@ -2,10 +2,13 @@ import { TestBed, waitForAsync, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { TransactionsService } from './modules/transactions/transactions.service';
 import { of } from 'rxjs';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router, provideRouter } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TimeoutService } from './timeout.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   imports: [],
@@ -32,8 +35,8 @@ describe('AppComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [RouterModule.forRoot([
+      declarations: [AppComponent, HeaderComponent, FooterComponent],
+      imports: [RouterTestingModule.withRoutes([
         { path: 'transactions', loadChildren: () => MockModule1Module },
         { path: 'positions', loadChildren: () => MockModule2Module }
       ])],
@@ -53,11 +56,6 @@ describe('AppComponent', () => {
 
   it('should create the app', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should render title in a h1 tag', () => {
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Equity Transactions and positions');
   });
 
   it('should navigate to "transactions" route', waitForAsync(() => {

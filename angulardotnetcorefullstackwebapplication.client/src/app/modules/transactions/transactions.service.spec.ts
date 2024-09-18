@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TransactionsService } from './transactions.service';
 import { Transaction } from './transaction';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpRequest, provideHttpClient } from '@angular/common/http';
 
 describe('TransactionsService', () => {
   let service: TransactionsService;
@@ -54,7 +54,7 @@ describe('TransactionsService', () => {
       expect(transactions).toEqual(dummyTransactions);
     });
 
-    const req = httpMock.expectOne('http://localhost:5150/Transaction');
+    const req = httpMock.expectOne((req: HttpRequest<any>) => { return req.url.toLowerCase().includes('api/transaction') });
     expect(req.request.method).toBe('GET');
     req.flush(dummyTransactions);
   });

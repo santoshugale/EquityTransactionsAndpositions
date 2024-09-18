@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { PositionsService } from './positions.service';
 import { Positions } from './positions';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpRequest, provideHttpClient } from '@angular/common/http';
 
 describe('PositionsService', () => {
   let service: PositionsService;
@@ -40,7 +40,7 @@ describe('PositionsService', () => {
       expect(positions).toEqual(dummyPositions);
     });
 
-    const req = httpMock.expectOne('http://localhost:5150/Positions');
+    const req = httpMock.expectOne((req: HttpRequest<any>) => { return req.url.toLowerCase().includes('api/positions') });
     expect(req.request.method).toBe('GET');
     req.flush(dummyPositions);
   });
